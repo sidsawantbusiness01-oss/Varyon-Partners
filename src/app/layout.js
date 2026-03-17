@@ -1,6 +1,6 @@
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 export const metadata = {
   title: "Varyon Partners",
   description:
