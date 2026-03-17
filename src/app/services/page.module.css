@@ -1,0 +1,11 @@
+.block {
+  margin-bottom: 3rem;
+}
+
+.block h2 {
+  margin-bottom: 0.5rem;
+}
+
+.block p {
+  color: var(--silver);
+}

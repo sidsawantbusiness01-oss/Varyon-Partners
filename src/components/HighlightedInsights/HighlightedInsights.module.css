@@ -1,0 +1,152 @@
+.section {
+  padding: 0;
+  /* background: #0d1a2b; */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.viewAll {
+  background: transparent;
+  border: 1px solid rgba(122, 166, 255, 0.4);
+  color: #7aa6ff;
+  padding: 0.9rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.viewAll:hover {
+  background: rgba(122, 166, 255, 0.1);
+}
+
+.header h2 {
+  font-size: 2.4rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.header p {
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.grid > div {
+  height: 100%;
+}
+
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  position: relative;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(122, 166, 255, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Top accent bar */
+.topBar {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #4f8cff, #7aa6ff);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+/* BUTTON */
+.readMore {
+  margin-top: auto;
+  background: transparent;
+  border: none;
+  color: #7aa6ff;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  transition: 0.3s ease;
+}
+
+.readMore:hover {
+  color: white;
+  transform: translateX(4px);
+}
+
+/* RESPONSIVE */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: 0;
+  }
+
+  .header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .viewAll {
+    padding: 0.8rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .card {
+    padding: 1.6rem;
+  }
+}

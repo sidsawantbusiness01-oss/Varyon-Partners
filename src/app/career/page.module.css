@@ -1,0 +1,65 @@
+.section {
+  padding: 120px 0;
+}
+
+.hero {
+  max-width: 700px;
+  margin-bottom: 70px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #cdcdcd;
+  line-height: 1.7;
+}
+
+.jobs {
+  display: grid;
+  gap: 30px;
+}
+
+.card {
+  border: 1px solid rgba(255, 255, 255, 0.184);
+  padding: 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(122, 166, 255, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.card span {
+  font-size: 14px;
+  color: #e6e6e6;
+}
+
+.card p {
+  margin-top: 10px;
+  color: #bbbbbb;
+}
+
+.readMore {
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 34px;
+  }
+}

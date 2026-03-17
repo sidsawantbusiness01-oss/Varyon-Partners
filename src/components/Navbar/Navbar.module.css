@@ -1,0 +1,128 @@
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 1.2rem 7rem;
+  z-index: 100;
+
+  /* Glass background */
+  background: rgba(0, 70, 150, 0.282); /* dark slight tint */
+  backdrop-filter: blur(55px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* Soft bottom shadow */
+  box-shadow: 0 28px 70px rgba(0, 71, 151, 0.35);
+
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.8s ease;
+  will-change: transform, opacity;
+}
+
+/* Hidden state */
+.hideNavbar {
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.nav nav a {
+  margin-left: 2rem;
+  color: var(--white);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.nav nav a:hover {
+  color: #007aff;
+}
+
+.logo {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu a {
+  color: white;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 2px;
+  background: white;
+  transition: 0.3s;
+}
+
+.bar1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bar2 {
+  opacity: 0;
+}
+
+.bar3 {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+@media (max-width: 968px) {
+  .header {
+    padding: 1.2rem 2rem;
+    z-index: 1000;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.937);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* keep right aligned */
+    padding: 6rem 2.5rem 2rem 2rem;
+    /* top | right | bottom | left */
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+  }
+
+  .menu a {
+    font-size: 1.2rem !important;
+    font-weight: 900 !important;
+  }
+
+  /* When active */
+  .show {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: flex;
+    z-index: 1001; /* keep above menu */
+  }
+}

@@ -1,66 +1,148 @@
-import Image from "next/image";
+"use client";
+
 import styles from "./page.module.css";
+import WhatWeDo from "@/components/WhatWeDo/WhatWeDo";
+import BreakdownSection from "@/components/BreakdownSection/BreakdownSection";
+import ScaleDiscipline from "@/components/ScaleDiscipline/ScaleDiscipline";
+import Mandates from "@/components/Mandates/Mandates";
+import WhyVaryon from "@/components/WhyVaryon/WhyVaryon";
+import HowWeEngage from "@/components/HowWeEngage/HowWeEngage";
+import ConvictionBlock from "@/components/ConvictionBlock/ConvictionBlock";
+import ContactForm from "@/components/ContactForm/ContactForm";
+import CaseStudiesCarousel from "@/components/CaseStudiesCarousel/CaseStudiesCarousel";
+import HighlightedCaseStudy from "@/components/HighlightedInsights/HighlightedInsights";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <>
+      {/* Hero */}
+      <section className={styles.hero}>
+        {/* Optimized Background Image */}
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/images/hero.jpeg"
+          alt="Varyon Hero Background"
+          fill
           priority
+          quality={75}
+          className={styles.heroImage}
+          style={{ objectFit: "cover" }}
         />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
+
+        {/* Dark Overlay */}
+        <div className={styles.overlay} />
+
+        <div className="container">
+          <h1>VARYON PARTNERS</h1>
+          <h3>
+            Strategy and Execution for Robotics, Physical AI and Automation
+          </h3>
           <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+            Varyon works with founders and investors to commercialize products,
+            improve execution, and build foundations to scale profitably.
           </p>
+
+          <div className={styles.buttons}>
+            <Link href="/contact" className={styles.primary}>
+              Discuss an Engagement
+            </Link>
+          </div>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+      {/* <section>
+        <div className={styles.container2}>
+          <BreakdownSection />
         </div>
-      </main>
-    </div>
+      </section> */}
+      {/* <section>
+        <div className={styles.container2}>
+          <ScaleDiscipline />
+        </div>
+      </section> */}
+      <section id="services" >
+        <div className={styles.container2}>
+          <Mandates />
+        </div>
+      </section>
+      <section>
+        <div className={styles.container2}>
+          <WhyVaryon />
+        </div>
+      </section>
+      <section>
+        <div className={styles.container2}>
+          <HowWeEngage />
+        </div>
+      </section>
+      {/* <section>
+        <div className={styles.container2}>
+          <ConvictionBlock />
+        </div>
+      </section> */}
+      {/* <section id="services">
+        <div className={styles.container2}>
+          <WhatWeDo />
+        </div>
+      </section> */}
+      {/* <section>
+        <div className={styles.container2}>
+          <CaseStudiesCarousel />
+        </div>
+      </section>
+      <section>
+        <div className={styles.container2}>
+          <HighlightedCaseStudy />
+        </div>
+      </section> */}
+      <section id="contact">
+        <div className={styles.container2}>
+          <ContactForm />
+        </div>
+      </section>
+
+      {/* Capabilities
+      <section>
+        <div className="container">
+          <h2>Core Capabilities</h2>
+
+          <div className={styles.grid}>
+            <div>
+              <h3>Commercial Diligence</h3>
+              <p>
+                Investment-grade analysis for robotics and industrial systems.
+              </p>
+            </div>
+
+            <div>
+              <h3>GTM & Productization</h3>
+              <p>
+                Structured go-to-market architecture and unit economics design.
+              </p>
+            </div>
+
+            <div>
+              <h3>Operating Systems for Scale</h3>
+              <p>
+                Execution frameworks that move pilot programs to profitable
+                deployment.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section> */}
+
+      {/* CTA Section */}
+      {/* <section className={styles.ctaSection}>
+        <div className="container">
+          <h2>Engage with Varyon</h2>
+          <p>Structured advisory for serious operators and investors.</p>
+
+          <Link href="/contact" className={styles.primary}>
+            Contact Us
+          </Link>
+        </div>
+      </section> */}
+    </>
   );
 }

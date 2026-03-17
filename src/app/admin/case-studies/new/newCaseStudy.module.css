@@ -1,0 +1,86 @@
+.wrapper {
+  padding: 40px;
+  max-width: 900px;
+}
+
+/* PAGE TITLE */
+
+.title {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* FORM */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* INPUTS */
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+
+  color: white;
+  font-size: 15px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* TEXTAREA */
+
+.textarea {
+  width: 100%;
+  min-height: 200px;
+
+  padding: 14px;
+
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+
+  color: white;
+  font-size: 15px;
+  line-height: 1.6;
+
+  resize: vertical;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+/* BUTTON */
+
+.submitBtn {
+  width: fit-content;
+
+  padding: 10px 20px;
+  background: #6366f1;
+
+  border: none;
+  border-radius: 8px;
+
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.submitBtn:hover {
+  background: #4f46e5;
+}
