@@ -1,6 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 import styles from "./page.module.css";
 
 const jobs = {
@@ -59,62 +60,76 @@ export default function JobPage() {
   return (
     <section className={styles.section}>
       <div className="container">
+        {/* Hero Section */}
         <div className={styles.hero}>
-          <h1>{job.title}</h1>
-          <span>{job.location}</span>
+          <ScrollReveal>
+            <>
+              <h1>{job.title}</h1>
+              <span>{job.location}</span>
 
-          <p>{job.description}</p>
+              <p>{job.description}</p>
 
-          <button
-            className={styles.applyBtn}
-            onClick={() => {
-              document
-                .getElementById("apply")
-                .scrollIntoView({ behavior: "smooth" });
-            }}
-          >
-            Apply for this role
-          </button>
+              <button
+                className={styles.applyBtn}
+                onClick={() => {
+                  document
+                    .getElementById("apply")
+                    .scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Apply for this role
+              </button>
+            </>
+          </ScrollReveal>
         </div>
+
+        {/* Details Section */}
         <div className={styles.details}>
-          <div>
-            <h2>Responsibilities</h2>
-            <ul>
-              {job.responsibilities.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
+          <ScrollReveal delay={0.1}>
+            <div>
+              <h2>Responsibilities</h2>
+              <ul>
+                {job.responsibilities.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
 
-          <div>
-            <h2>Requirements</h2>
-            <ul>
-              {job.requirements.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-          </div>
+          <ScrollReveal delay={0.2}>
+            <div>
+              <h2>Requirements</h2>
+              <ul>
+                {job.requirements.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
         </div>
 
-        <div id="apply" className={styles.formSection}>
-          <h2>Apply for {job.title}</h2>
+        {/* Apply Section */}
+        <ScrollReveal delay={0.3}>
+          <div id="apply" className={styles.formSection}>
+            <h2>Apply for {job.title}</h2>
 
-          <form className={styles.form}>
-            <input placeholder="Full Name" required />
+            <form className={styles.form}>
+              <input placeholder="Full Name" required />
 
-            <input placeholder="Email ID" required />
+              <input placeholder="Email ID" required />
 
-            <input placeholder="Contact Number" required />
+              <input placeholder="Contact Number" required />
 
-            <input placeholder="Highest Qualification" required />
+              <input placeholder="Highest Qualification" required />
 
-            <input value={job.title} readOnly />
+              <input value={job.title} readOnly />
 
-            <input type="file" required />
+              <input type="file" required />
 
-            <button>Submit Application</button>
-          </form>
-        </div>
+              <button>Submit Application</button>
+            </form>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
