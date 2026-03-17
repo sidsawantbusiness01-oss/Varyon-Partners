@@ -29,11 +29,11 @@ export default function About() {
             <HowWeEngage />
           </div>
         </section>
-        {/* <section>
-          <div className={styles.container2}>
-            <WhatWeDo />
-          </div>
-        </section> */}
+          {/* <section>
+            <div className={styles.container2}>
+              <WhatWeDo />
+            </div>
+          </section> */}
       </div>
     </section>
   );
