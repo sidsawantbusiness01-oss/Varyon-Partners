@@ -44,7 +44,7 @@ export default function Home() {
           </p>
 
           <div className={styles.buttons}>
-            <Link href="/contact" className={styles.primary}>
+            <Link href="/#contact" className={styles.primary}>
               Discuss an Engagement
             </Link>
           </div>

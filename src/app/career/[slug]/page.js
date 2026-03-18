@@ -104,18 +104,52 @@ export default function JobPage() {
           <div id="apply" className={styles.formSection}>
             <h2>Apply for {job.title}</h2>
 
-            <form className={styles.form}>
-              <input placeholder="Full Name" required />
+            <form
+              className={styles.form}
+              onSubmit={async (e) => {
+                e.preventDefault();
 
-              <input placeholder="Email ID" required />
+                const formData = new FormData(e.target);
+                const file = formData.get("resume");
+                if (file.size > 5 * 1024 * 1024) {
+                  alert("File too large (max 5MB)");
+                  return;
+                }
 
-              <input placeholder="Contact Number" required />
+                try {
+                  const res = await fetch("/api/apply", {
+                    method: "POST",
+                    body: formData,
+                  });
 
-              <input placeholder="Highest Qualification" required />
+                  const data = await res.json();
 
-              <input value={job.title} readOnly />
-
-              <input type="file" required />
+                  if (data.success) {
+                    alert("Application submitted successfully.");
+                    e.target.reset();
+                  } else {
+                    alert("Something went wrong.");
+                  }
+                } catch (err) {
+                  alert("Error submitting application.");
+                }
+              }}
+            >
+              <input name="name" placeholder="Full Name" required />
+              <input name="email" placeholder="Email ID" required />
+              <input name="phone" placeholder="Contact Number" required />
+              <input
+                name="qualification"
+                placeholder="Highest Qualification"
+                required
+              />
+              <input name="role" value={job.title} readOnly />
+              <input
+                name="resume"
+                type="file"
+                accept=".pdf,.doc,.docx"
+                required
+              />
 
               <button>Submit Application</button>
             </form>
