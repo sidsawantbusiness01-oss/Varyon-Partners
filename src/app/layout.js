@@ -12,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <LayoutWrapper>{children}</LayoutWrapper>
+        <SpeedInsights/>
       </body>
     </html>
   );
