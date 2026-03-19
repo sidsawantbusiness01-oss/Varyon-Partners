@@ -44,8 +44,9 @@
 }
 
 .logo {
-  font-weight: 600;
+  font-weight: 900;
   letter-spacing: 1px;
+  font-size: 20px;
 }
 
 .menu {
