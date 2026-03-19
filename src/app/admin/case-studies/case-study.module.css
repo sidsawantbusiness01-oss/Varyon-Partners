@@ -3,7 +3,6 @@
 }
 
 /* HEADER */
-
 .header{
   display:flex;
   justify-content:space-between;
@@ -17,7 +16,6 @@
 }
 
 /* ADD BUTTON */
-
 .addBtn{
   background:#6366f1;
   color:white;
@@ -33,7 +31,6 @@
 }
 
 /* INSIGHTS LIST */
-
 .list{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));

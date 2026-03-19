@@ -1,6 +1,6 @@
 import "./globals.css";
 import LayoutWrapper from "@/components/LayoutWrapper";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 export const metadata = {
   title: "Varyon Partners",
   description:
@@ -9,10 +9,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
         <LayoutWrapper>{children}</LayoutWrapper>
-        <SpeedInsights/>
+        <SpeedInsights />
       </body>
     </html>
   );

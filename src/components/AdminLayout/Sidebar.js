@@ -45,6 +45,13 @@ export default function SideBar({ sidebarOpen }) {
           >
             <FaBriefcase /> Case Studies
           </Link>
+
+          <Link
+            href="/admin/career"
+            className={pathname === "/admin/career" ? styles.active : ""}
+          >
+            <FaBriefcase /> Career
+          </Link>
         </nav>
       </div>
 
