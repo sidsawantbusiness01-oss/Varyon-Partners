@@ -6,6 +6,10 @@ import styles from "./newCareer.module.css";
 
 export default function NewCaseStudy() {
   const [role, setRole] = useState("");
+  const [shortDesc, setShortDesc] = useState("");
+  const [location, setLocation] = useState("");
+  const [jobType, setJobType] = useState("Remote");
+
   const [descriptions, setDescriptions] = useState([""]);
   const [requirements, setRequirements] = useState([""]);
 
@@ -50,9 +54,17 @@ export default function NewCaseStudy() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (role.length > 80) {
+      alert("Job role must be less than 80 characters");
+      return;
+    }
+
     const formData = new FormData();
 
     formData.append("role", role);
+    formData.append("shortDesc", shortDesc);
+    formData.append("location", location);
+    formData.append("jobType", jobType);
     formData.append("descriptions", JSON.stringify(descriptions));
     formData.append("requirements", JSON.stringify(requirements));
 
@@ -79,6 +91,9 @@ export default function NewCaseStudy() {
 
     // reset
     setRole("");
+    setShortDesc("");
+    setLocation("");
+    setJobType("Remote");
     setDescriptions([""]);
     setRequirements([""]);
   };
@@ -95,20 +110,44 @@ export default function NewCaseStudy() {
         {/* ROLE */}
         <input
           className={styles.input}
-          placeholder="Job Role"
+          placeholder="Job Role (max 80 chars)"
           value={role}
           onChange={(e) => setRole(e.target.value)}
         />
 
+        {/* SHORT DESCRIPTION */}
+        <input
+          className={styles.input}
+          placeholder="Short Description"
+          value={shortDesc}
+          onChange={(e) => setShortDesc(e.target.value)}
+        />
+
+        {/* LOCATION */}
+        <input
+          className={styles.input}
+          placeholder="Location (e.g. Mumbai / Remote)"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
+
+        {/* JOB TYPE DROPDOWN */}
+        <select
+          className={styles.input}
+          value={jobType}
+          onChange={(e) => setJobType(e.target.value)}
+        >
+          <option value="Remote">Remote</option>
+          <option value="Work From Office">Work From Office</option>
+          <option value="Hybrid">Hybrid</option>
+        </select>
+
         {/* JOB DESCRIPTION */}
         <div>
-          <h3 style={{ marginBottom: "10px" }}>Job Description</h3>
+          <h3>Job Description</h3>
 
           {descriptions.map((desc, index) => (
-            <div
-              key={index}
-              style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-            >
+            <div key={index} className={styles.row}>
               <input
                 className={styles.input}
                 placeholder={`Description ${index + 1}`}
@@ -139,13 +178,10 @@ export default function NewCaseStudy() {
 
         {/* REQUIREMENTS */}
         <div>
-          <h3 style={{ marginBottom: "10px" }}>Requirements</h3>
+          <h3>Requirements</h3>
 
           {requirements.map((req, index) => (
-            <div
-              key={index}
-              style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-            >
+            <div key={index} className={styles.row}>
               <input
                 className={styles.input}
                 placeholder={`Requirement ${index + 1}`}
@@ -173,8 +209,7 @@ export default function NewCaseStudy() {
             + Add Requirement
           </button>
         </div>
-        <br />
-        {/* SUBMIT */}
+
         <button className={styles.submitBtn}>Add Job Vacancy</button>
       </form>
     </div>

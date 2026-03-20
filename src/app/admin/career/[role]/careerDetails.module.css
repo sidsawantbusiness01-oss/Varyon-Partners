@@ -65,6 +65,13 @@
   font-size: 15px;
 }
 
+.row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+
 /* BUTTON */
 .submitBtn {
   width: fit-content;

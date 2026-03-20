@@ -12,6 +12,10 @@ export default function CareerDetail() {
 
   const [job, setJob] = useState(null);
   const [roleState, setRoleState] = useState("");
+  const [shortDesc, setShortDesc] = useState("");
+  const [location, setLocation] = useState("");
+  const [jobType, setJobType] = useState("Remote");
+
   const [descriptions, setDescriptions] = useState([""]);
   const [requirements, setRequirements] = useState([""]);
   const [loading, setLoading] = useState(true);
@@ -42,6 +46,10 @@ export default function CareerDetail() {
 
         setJob(jobData);
         setRoleState(jobData.role);
+        setShortDesc(jobData.short_desc || "");
+        setLocation(jobData.location || "");
+        setJobType(jobData.job_type || "Remote");
+
         setDescriptions(jobData.descriptions || [""]);
         setRequirements(jobData.requirements || [""]);
       }
@@ -67,8 +75,7 @@ export default function CareerDetail() {
   };
 
   const removeDescription = (index) => {
-    const updated = descriptions.filter((_, i) => i !== index);
-    setDescriptions(updated);
+    setDescriptions(descriptions.filter((_, i) => i !== index));
   };
 
   const handleRequirementChange = (index, value) => {
@@ -82,8 +89,7 @@ export default function CareerDetail() {
   };
 
   const removeRequirement = (index) => {
-    const updated = requirements.filter((_, i) => i !== index);
-    setRequirements(updated);
+    setRequirements(requirements.filter((_, i) => i !== index));
   };
 
   // ------------------------
@@ -93,13 +99,21 @@ export default function CareerDetail() {
   const handleUpdate = async () => {
     if (!job) return;
 
+    if (roleState.length > 80) {
+      alert("Role must be less than 80 characters");
+      return;
+    }
+
     const cleanDescriptions = descriptions.filter((d) => d.trim() !== "");
     const cleanRequirements = requirements.filter((r) => r.trim() !== "");
 
     const { error } = await supabase
       .from("careers")
       .update({
-        role: roleState,
+        role: roleState.trim(),
+        short_desc: shortDesc.trim(),
+        location: location.trim(),
+        job_type: jobType,
         descriptions: cleanDescriptions,
         requirements: cleanRequirements,
       })
@@ -122,7 +136,6 @@ export default function CareerDetail() {
     if (!job) return;
 
     const confirmDelete = confirm("Are you sure you want to delete this job?");
-
     if (!confirmDelete) return;
 
     const { error } = await supabase.from("careers").delete().eq("id", job.id);
@@ -142,7 +155,6 @@ export default function CareerDetail() {
   // ------------------------
 
   if (loading) return <p style={{ padding: "40px" }}>Loading...</p>;
-
   if (!job) return <p style={{ padding: "40px" }}>Job not found</p>;
 
   return (
@@ -169,16 +181,40 @@ export default function CareerDetail() {
           className={styles.input}
           value={roleState}
           onChange={(e) => setRoleState(e.target.value)}
-          placeholder="Job Role"
+          placeholder="Job Role (max 80 chars)"
         />
+
+        {/* SHORT DESC */}
+        <input
+          className={styles.input}
+          value={shortDesc}
+          onChange={(e) => setShortDesc(e.target.value)}
+          placeholder="Short Description"
+        />
+
+        {/* LOCATION */}
+        <input
+          className={styles.input}
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          placeholder="Location"
+        />
+
+        {/* JOB TYPE */}
+        <select
+          className={styles.input}
+          value={jobType}
+          onChange={(e) => setJobType(e.target.value)}
+        >
+          <option value="Remote">Remote</option>
+          <option value="Work From Office">Work From Office</option>
+          <option value="Hybrid">Hybrid</option>
+        </select>
 
         {/* DESCRIPTIONS */}
         <h3>Job Description</h3>
         {descriptions.map((desc, index) => (
-          <div
-            key={index}
-            style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-          >
+          <div key={index} className={styles.row}>
             <input
               className={styles.input}
               value={desc}
@@ -198,15 +234,14 @@ export default function CareerDetail() {
           </div>
         ))}
 
-        <button className={styles.submitBtn} onClick={addDescription}>+ Add Description</button>
+        <button className={styles.submitBtn} onClick={addDescription}>
+          + Add Description
+        </button>
 
         {/* REQUIREMENTS */}
         <h3 style={{ marginTop: "20px" }}>Requirements</h3>
         {requirements.map((req, index) => (
-          <div
-            key={index}
-            style={{ display: "flex", gap: "10px", marginBottom: "10px" }}
-          >
+          <div key={index} className={styles.row}>
             <input
               className={styles.input}
               value={req}
@@ -215,12 +250,20 @@ export default function CareerDetail() {
             />
 
             {requirements.length > 1 && (
-              <button className={styles.crossButton} onClick={() => removeRequirement(index)}><ImCross/></button>
+              <button
+                type="button"
+                className={styles.crossButton}
+                onClick={() => removeRequirement(index)}
+              >
+                <ImCross />
+              </button>
             )}
           </div>
         ))}
 
-        <button className={styles.submitBtn} onClick={addRequirement}>+ Add Requirement</button>
+        <button className={styles.submitBtn} onClick={addRequirement}>
+          + Add Requirement
+        </button>
       </div>
     </div>
   );

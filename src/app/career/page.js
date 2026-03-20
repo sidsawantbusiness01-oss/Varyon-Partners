@@ -1,32 +1,43 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 import Link from "next/link";
-
-const jobs = [
-  {
-    slug: "full-stack-developer",
-    title: "Full Stack Developer",
-    location: "Remote",
-    short:
-      "Build internal platforms and systems supporting robotics and automation advisory.",
-  },
-  {
-    slug: "research-analyst",
-    title: "Research Analyst (Deep-Tech)",
-    location: "Remote",
-    short:
-      "Research robotics, automation and physical AI companies across global markets.",
-  },
-  {
-    slug: "operations-associate",
-    title: "Operations Associate",
-    location: "Mumbai / Remote",
-    short:
-      "Support internal operations, analytics and execution of consulting engagements.",
-  },
-];
+import supabase from "@/lib/supabase";
 
 export default function CareerPage() {
+  const [jobs, setJobs] = useState([]);
+
+  const generateSlug = (role) => role.toLowerCase().replace(/ /g, "-");
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      const { data, error } = await supabase
+        .from("careers")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+      if (error) {
+        console.error("Error fetching jobs:", error);
+        return;
+      }
+
+      // Transform DB data → UI format
+      const formattedJobs = data.map((job) => ({
+        slug: generateSlug(job.role),
+        title: job.role,
+        location: job.location || "Not specified",
+        jobType: job.job_type || "Remote",
+        short: job.short_desc || job.descriptions?.[0] || "",
+      }));
+
+      setJobs(formattedJobs);
+    };
+
+    fetchJobs();
+  }, []);
+
   return (
     <section className={styles.section}>
       <div className="container">
@@ -38,7 +49,8 @@ export default function CareerPage() {
               and automation companies.
             </p>
           </div>
-        </ScrollReveal> 
+        </ScrollReveal>
+
         <ScrollReveal delay={250}>
           <div className={styles.jobs}>
             {jobs.map((job) => (
@@ -48,9 +60,12 @@ export default function CareerPage() {
                 className={styles.card}
               >
                 <h3>{job.title}</h3>
-                <span>{job.location}</span>
-                <p>{job.short}</p>
-
+                {/* TAGS */}
+                <div className={styles.meta}>
+                  <span className={styles.location}>{job.location}</span>
+                  <span className={styles.jobType}>{job.jobType}</span>
+                </div>
+                <p className={styles.short}>{job.short}</p>
                 <div className={styles.readMore}>View Role →</div>
               </Link>
             ))}
