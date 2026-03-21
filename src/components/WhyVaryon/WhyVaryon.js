@@ -95,8 +95,8 @@ export default function WhyVaryon() {
                         by 40%+ for a fleet of 50+ semi-autonomous vehicles.
                       </li>
                       <li>
-                        <strong>The Complexity:</strong> Scaled
-                        global operations across Las Vegas, Dallas, Austin, and
+                        <strong>The Complexity:</strong> Scaled global
+                        operations across Las Vegas, Dallas, Austin, and
                         Phoenix, accelerating "Go-Live" by 3 months.
                       </li>
                       <li>
@@ -113,9 +113,9 @@ export default function WhyVaryon() {
                     </h4>
                     <ul>
                       <li>
-                        <strong>The Metric:</strong> Delivered $15M
-                        revenue uplift and 300 bps EBITDA gain through
-                        organizational design and ops transformation.
+                        <strong>The Metric:</strong> Delivered $15M revenue
+                        uplift and 300 bps EBITDA gain through organizational
+                        design and ops transformation.
                       </li>
                       <li>
                         <strong>The Complexity:</strong>Founded India's first

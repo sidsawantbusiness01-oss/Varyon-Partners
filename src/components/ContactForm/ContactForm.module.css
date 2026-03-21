@@ -9,6 +9,106 @@
   /* padding: 0 24px; */
 }
 
+/* CTA CARD */
+.ctaCard {
+  text-align: center;
+  padding: 50px 30px;
+  width: 80%;
+  margin: 0 auto 60px auto; /* 🔥 centers horizontally */
+  background: linear-gradient(135deg, #0f243d, #0b1a2a);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 30px 80px -40px rgba(0, 0, 0, 0.9);
+}
+
+/* TITLE */
+.ctaCard h2 {
+  font-size: 1.9rem;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+/* TEXT */
+.ctaCard p {
+  max-width: 700px;
+  margin: 0 auto 26px auto;
+
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #9fb0c3;
+}
+
+/* BUTTON */
+.ctaCard {
+  position: relative;
+  text-align: center;
+  padding: 60px 30px;
+  margin-bottom: 70px;
+
+  /* 🔥 DIFFERENT BACKGROUND */
+  background: linear-gradient(
+    135deg,
+    rgba(59, 62, 213, 0.12),
+    rgba(13, 26, 43, 0.9)
+  );
+
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 16px;
+
+  /* 🔥 DEPTH */
+  box-shadow:
+    0 40px 100px -40px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+
+  overflow: hidden;
+}
+
+.ctaCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at 50% 20%,
+    rgba(99, 102, 241, 0.25),
+    transparent 60%
+  );
+
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #0070f3, #00a6ff);
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 112, 243, 0.35);
+}
+.ctaCard h2 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.ctaCard p {
+  max-width: 720px;
+  margin: 0 auto 28px auto;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #b8c6d6;
+}
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
@@ -101,8 +201,8 @@
 
 @media (max-width: 1024px) {
   .form {
-  padding: 1.5rem;
-}
+    padding: 1.5rem;
+  }
 
   .wrapper {
     grid-template-columns: 1fr;

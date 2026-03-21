@@ -1,5 +1,4 @@
 .section {
-  padding: 0;
   background: #0d1a2b;
   background: radial-gradient(circle at top left, #10233a, #0d1a2b 60%);
   box-shadow: -22px 20px 30px -15px rgba(0, 71, 151, 0.35);
@@ -11,6 +10,7 @@
   font-size: 2.5rem;
   margin-bottom: 4rem;
   letter-spacing: 1px;
+  padding-top: 5px;
 }
 
 .grid {
@@ -163,6 +163,7 @@
 
   .title {
     font-size: 2rem;
+    padding-top: 35px;
   }
 
   .column h3 {
@@ -171,6 +172,6 @@
   }
 
   .section {
-    padding: 0;
+    padding: 1rem;
   }
 }

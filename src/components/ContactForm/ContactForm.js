@@ -58,6 +58,21 @@ export default function ContactForm() {
 
   return (
     <section className={styles.section}>
+      <ScrollReveal>
+        <div className={styles.ctaCard}>
+          <h2>Discuss an Engagement</h2>
+
+          <p>
+            If you are evaluating commercialization, scale, operating readiness,
+            or automation priorities in robotics and physical AI, Varyon can
+            structure an engagement around the problem that matters most.
+          </p>
+
+          <a href="#contact" className={styles.ctaButton}>
+            Discuss an Engagement
+          </a>
+        </div>
+      </ScrollReveal>
       <div className={styles.container}>
         <div className={styles.wrapper}>
           {/* LEFT SIDE */}
