@@ -13,6 +13,7 @@ import CaseStudiesCarousel from "@/components/CaseStudiesCarousel/CaseStudiesCar
 import HighlightedCaseStudy from "@/components/HighlightedInsights/HighlightedInsights";
 import Link from "next/link";
 import Image from "next/image";
+import ProcessSection from "@/components/ProcessSection/ProcessSection";
 
 export default function Home() {
   return (
@@ -34,13 +35,21 @@ export default function Home() {
         <div className={styles.overlay} />
 
         <div className="container">
-          <h1>VARYON PARTNERS</h1>
-          <h3>
+          {/* <h1>VARYON PARTNERS</h1> */}
+          <h1>
             Strategy and Execution for Robotics, Physical AI and Automation
-          </h3>
+          </h1>
+          {/* <h3>
+            Strategy and Execution for Robotics, Physical AI and Automation
+          </h3> */}
+          {/* <h3>
+            Strategic commercialization and operational execution - built for
+            founders and investors of the Robotics frontier.
+          </h3> */}
           <p>
-            Varyon works with founders and investors to commercialize products,
-            improve execution, and build foundations to scale profitably.
+            Varyon solves the "Hardware is Hard" problem by bridging the gap
+            between R&D and profitable scale. We transform technical IP into
+            high-performance, market-leading enterprises
           </p>
 
           <div className={styles.buttons}>
@@ -48,6 +57,11 @@ export default function Home() {
               Discuss an Engagement
             </Link>
           </div>
+        </div>
+      </section>
+      <section>
+        <div className={styles.container2}>
+          <HowWeEngage />
         </div>
       </section>
       {/* <section>
@@ -60,7 +74,7 @@ export default function Home() {
           <ScaleDiscipline />
         </div>
       </section> */}
-      <section id="services" >
+      <section id="services">
         <div className={styles.container2}>
           <Mandates />
         </div>
@@ -72,9 +86,14 @@ export default function Home() {
       </section>
       <section>
         <div className={styles.container2}>
-          <HowWeEngage />
+          <ProcessSection />
         </div>
       </section>
+      {/* <section>
+        <div className={styles.container2}>
+          <HowWeEngage />
+        </div>
+      </section> */}
       {/* <section>
         <div className={styles.container2}>
           <ConvictionBlock />

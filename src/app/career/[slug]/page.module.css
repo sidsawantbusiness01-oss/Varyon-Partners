@@ -82,6 +82,28 @@
   margin-bottom: 30px;
 }
 
+.meta {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 15px;
+}
+
+.location {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(59, 131, 246, 0.386);
+  color: white !important;
+  font-size: 12px;
+}
+
+.jobType {
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.547);
+  color: white !important;
+  font-size: 12px;
+}
+
 .form {
   width: 100%;
   max-width: 600px;

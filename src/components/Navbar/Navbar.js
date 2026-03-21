@@ -29,7 +29,7 @@ export default function Navbar() {
             About
           </Link>
           <Link href="/#services" onClick={() => setMenuOpen(false)}>
-            Services
+            What we do
           </Link>
           <Link href="/case-studies" onClick={() => setMenuOpen(false)}>
             Case Studies
@@ -37,10 +37,14 @@ export default function Navbar() {
           <Link href="/insights" onClick={() => setMenuOpen(false)}>
             Insights
           </Link>
-          <Link href="/career" onClick={() => setMenuOpen(false)}>
+          {/* <Link href="/career" onClick={() => setMenuOpen(false)}>
             Career
-          </Link>
-          <Link href="/#contact" onClick={() => setMenuOpen(false)}>
+          </Link> */}
+          <Link
+            className={styles.cta}
+            href="/#contact"
+            onClick={() => setMenuOpen(false)}
+          >
             Discuss an Engagement
           </Link>
         </nav>

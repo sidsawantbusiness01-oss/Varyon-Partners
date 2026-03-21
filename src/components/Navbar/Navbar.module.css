@@ -32,21 +32,62 @@
   position: relative;
 }
 
+.nav nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .nav nav a {
   margin-left: 2rem;
   color: var(--white);
   font-size: 0.85rem;
   font-weight: 700;
+
+  display: flex;
+  align-items: center; /* vertical center */
+  height: 100%;
 }
 
 .nav nav a:hover {
   color: #007aff;
 }
 
+.cta {
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600 !important;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0070f3, #00a6ff); /* solid indigo */
+  /* Soft glow underneath */
+  box-shadow:
+    0 10px 25px rgba(99, 102, 241, 0.45),
+    0 4px 10px rgba(99, 102, 241, 0.25);
+  transition: all 0.25s ease;
+}
+
+/* Hover = slightly lifted + stronger glow */
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 30px rgba(99, 102, 241, 0.55),
+    0 6px 14px rgba(99, 102, 241, 0.35);
+  color: white !important;
+}
+
+/* Click */
+.cta:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.4);
+}
+
 .logo {
   font-weight: 900;
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 28px;
 }
 
 .menu {
@@ -85,6 +126,14 @@
 
 .bar3 {
   transform: rotate(-45deg) translate(6px, -6px);
+}
+
+@media (max-width: 1300px) {
+  .cta {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+  }
 }
 
 @media (max-width: 968px) {

@@ -1,71 +1,71 @@
 "use client";
 
 import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 import styles from "./page.module.css";
-
-const jobs = {
-  "full-stack-developer": {
-    title: "Full Stack Developer",
-    location: "Remote",
-
-    description:
-      "We are looking for a Full Stack Developer to build internal platforms, analytics dashboards and automation tools used across consulting engagements.",
-
-    responsibilities: [
-      "Develop internal web applications",
-      "Design scalable APIs and backend systems",
-      "Collaborate with research and operations teams",
-      "Maintain platform reliability and performance",
-    ],
-
-    requirements: [
-      "Strong experience with JavaScript / React / Node.js",
-      "Experience building full stack applications",
-      "Understanding of APIs and database design",
-      "Ability to work independently",
-    ],
-  },
-
-  "research-analyst": {
-    title: "Research Analyst (Deep-Tech)",
-    location: "Remote",
-
-    description:
-      "Conduct market and technical research across robotics, automation and physical AI companies.",
-
-    responsibilities: [
-      "Analyze robotics startups and technologies",
-      "Produce research reports",
-      "Support consulting engagements",
-      "Track emerging industry trends",
-    ],
-
-    requirements: [
-      "Strong analytical skills",
-      "Interest in robotics or deep-tech",
-      "Research or consulting background preferred",
-    ],
-  },
-};
+import supabase from "@/lib/supabase";
 
 export default function JobPage() {
   const params = useParams();
-  const job = jobs[params.slug];
+  const [job, setJob] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  // ------------------------
+  // FORMAT SLUG → ROLE
+  // ------------------------
+
+  const formatRole = (slug) => {
+    return slug.replace(/-/g, " ").trim();
+  };
+
+  // ------------------------
+  // FETCH DATA
+  // ------------------------
+
+  useEffect(() => {
+    const fetchJob = async () => {
+      const formattedRole = formatRole(params.slug);
+
+      const { data, error } = await supabase
+        .from("careers")
+        .select("*")
+        .ilike("role", `%${formattedRole}%`);
+
+      if (!error && data && data.length > 0) {
+        setJob(data[0]);
+      }
+
+      setLoading(false);
+    };
+
+    if (params.slug) fetchJob();
+  }, [params.slug]);
+
+  if (loading) {
+    return <div style={{ padding: "120px" }}>Loading...</div>;
+  }
 
   if (!job) {
     return <div style={{ padding: "120px" }}>Job not found</div>;
   }
 
+
   return (
     <section className={styles.section}>
       <div className="container">
+        {/* HERO */}
         <ScrollReveal>
           <div className={styles.hero}>
-            <h1>{job.title}</h1>
-            <span>{job.location}</span>
+            <h1>{job.role}</h1>
 
-            <p>{job.description}</p>
+            {/* META */}
+            <div className={styles.meta}>
+              <span className={styles.location}>{job.location}</span>
+              <span className={styles.jobType}>{job.job_type}</span>
+            </div>
+
+            <p>{job.short_desc}</p>
 
             <button
               className={styles.applyBtn}
@@ -79,12 +79,14 @@ export default function JobPage() {
             </button>
           </div>
         </ScrollReveal>
+
+        {/* DETAILS */}
         <ScrollReveal delay={250}>
           <div className={styles.details}>
             <div>
-              <h2>Responsibilities</h2>
+              <h2>Job Description</h2>
               <ul>
-                {job.responsibilities.map((item, i) => (
+                {job.descriptions?.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
               </ul>
@@ -93,16 +95,18 @@ export default function JobPage() {
             <div>
               <h2>Requirements</h2>
               <ul>
-                {job.requirements.map((item, i) => (
+                {job.requirements?.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
               </ul>
             </div>
           </div>
         </ScrollReveal>
+
+        {/* APPLY FORM */}
         <ScrollReveal delay={150}>
           <div id="apply" className={styles.formSection}>
-            <h2>Apply for {job.title}</h2>
+            <h2>Apply for {job.role}</h2>
 
             <form
               className={styles.form}
@@ -111,6 +115,7 @@ export default function JobPage() {
 
                 const formData = new FormData(e.target);
                 const file = formData.get("resume");
+
                 if (file.size > 5 * 1024 * 1024) {
                   alert("File too large (max 5MB)");
                   return;
@@ -130,7 +135,7 @@ export default function JobPage() {
                   } else {
                     alert("Something went wrong.");
                   }
-                } catch (err) {
+                } catch {
                   alert("Error submitting application.");
                 }
               }}
@@ -143,7 +148,10 @@ export default function JobPage() {
                 placeholder="Highest Qualification"
                 required
               />
-              <input name="role" value={job.title} readOnly />
+
+              {/* AUTO ROLE */}
+              <input name="role" value={job.role} readOnly />
+
               <input
                 name="resume"
                 type="file"

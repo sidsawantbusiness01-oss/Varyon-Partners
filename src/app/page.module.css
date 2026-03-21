@@ -4,7 +4,7 @@
   position: relative;
   text-align: center;
   min-height: 100vh;
-  padding: 6rem 1rem;
+  padding: 6rem 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,7 +62,7 @@
 /* ================= TEXT STYLES ================= */
 
 .hero h1 {
-  font-size: 4.4rem;
+  font-size: 2.8rem;
   opacity: 0;
   animation: fadeUp 0.9s ease forwards;
   animation-delay: 0.4s;
@@ -80,8 +80,8 @@
 }
 
 .hero h3 {
-  font-size: 1.35rem;
-  font-weight: 800;
+  font-size: 1.4rem;
+  font-weight: 600;
   /* margin-bottom: 0.5rem; */
   opacity: 0;
   animation: fadeUp 0.8s ease forwards;
@@ -102,12 +102,11 @@
 .hero p {
   max-width: 700px;
   margin: 0 auto 2rem auto;
-  font-size: 1.20rem;
+  font-size: 0.95rem;
   font-weight: 700;
   opacity: 0;
   animation: fadeUp 1s ease forwards;
   animation-delay: 0.8s;
-
   /* background: linear-gradient(
     90deg,
     hsla(0, 0%, 80%, 0.5),
@@ -169,11 +168,11 @@
 
 /* ================= CTA SECTION ================= */
 
-.ctaSection {
+/* .ctaSection {
   text-align: center;
   padding: 5rem 0;
   background: rgba(255, 255, 255, 0.05);
-}
+} */
 
 /* ================= RESPONSIVE ================= */
 
@@ -193,10 +192,18 @@
   }
 
   .hero {
-    padding: 4rem 1rem;
+    padding: 4rem 1.5rem;
   }
 
   .hero h1 {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
+  }
+
+  .hero h3 {
+    font-size: 1rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
   }
 }
