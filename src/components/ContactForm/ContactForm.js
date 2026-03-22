@@ -75,95 +75,94 @@ export default function ContactForm() {
       </ScrollReveal>
       <div className={styles.container}>
         <div className={styles.wrapper}>
-            {/* LEFT SIDE */}
-            <ScrollReveal>
-              <div className={styles.left}>
-                <h2>Discuss an Engagement</h2>
-                <p>
-                  Varyon Partners works with founders, investors, and industrial
-                  operators navigating complex automation, robotics, and
-                  physical AI deployments. We engage where execution risk is
-                  high and capital intensity demands structured operating
-                  systems.
-                </p>
+          {/* LEFT SIDE */}
+          <ScrollReveal>
+            <div className={styles.left}>
+              <h2>Discuss an Engagement</h2>
+              <p>
+                Varyon Partners works with founders, investors, and industrial
+                operators navigating complex automation, robotics, and physical
+                AI deployments. We engage where execution risk is high and
+                capital intensity demands structured operating systems.
+              </p>
 
-                <br />
+              <br />
 
-                <p>
-                  Provide relevant context regarding your stage, deployment
-                  objectives, and economic model. Our team will review and
-                  respond if there is strategic alignment.
-                </p>
-              </div>
-            </ScrollReveal>
+              <p>
+                Provide relevant context regarding your stage, deployment
+                objectives, and economic model. Our team will review and respond
+                if there is strategic alignment.
+              </p>
+            </div>
+          </ScrollReveal>
 
-            {/* RIGHT SIDE FORM */}
-            <ScrollReveal delay={200}>
-              <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.row}>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Full Name *"
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="company"
-                    placeholder="Company *"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                <div className={styles.row}>
-                  <input
-                    type="text"
-                    name="role"
-                    placeholder="Role / Title"
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address *"
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                <div className={styles.row}>
-                  <select name="budget" onChange={handleChange}>
-                    <option value="">Indicative Engagement Range</option>
-                    <option>Under ₹5L</option>
-                    <option>₹5L – ₹15L</option>
-                    <option>₹15L – ₹50L</option>
-                    <option>Above ₹50L</option>
-                  </select>
-
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number *"
-                    onChange={handleChange}
-                    pattern="[0-9]{10}"
-                    required
-                  />
-                </div>
-
-                <textarea
-                  name="message"
-                  placeholder="Engagement Context *"
-                  rows={5}
+          {/* RIGHT SIDE FORM */}
+          <ScrollReveal delay={200}>
+            <form className={styles.form} onSubmit={handleSubmit}>
+              <div className={styles.row}>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name *"
                   onChange={handleChange}
                   required
                 />
+                <input
+                  type="text"
+                  name="company"
+                  placeholder="Company *"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
 
-                <button type="submit">Submit Inquiry</button>
-              </form>
-            </ScrollReveal>
+              <div className={styles.row}>
+                <input
+                  type="text"
+                  name="role"
+                  placeholder="Role / Title"
+                  onChange={handleChange}
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address *"
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className={styles.row}>
+                <select name="budget" onChange={handleChange}>
+                  <option value="">Indicative Engagement Range</option>
+                  <option>Under $6K</option>
+                  <option>$6K – $18K</option>
+                  <option>$18K – $60K</option>
+                  <option>Above $60K</option>
+                </select>
+
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number *"
+                  onChange={handleChange}
+                  pattern="[0-9]{10}"
+                  required
+                />
+              </div>
+
+              <textarea
+                name="message"
+                placeholder="Engagement Context *"
+                rows={5}
+                onChange={handleChange}
+                required
+              />
+
+              <button type="submit">Submit Inquiry</button>
+            </form>
+          </ScrollReveal>
         </div>
       </div>
     </section>
