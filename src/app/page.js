@@ -64,7 +64,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section>
+      <section id="services">
         <div className={styles.container2}>
           <HowWeEngage />
         </div>
@@ -79,7 +79,7 @@ export default function Home() {
           <ScaleDiscipline />
         </div>
       </section> */}
-      <section id="services">
+      <section>
         <div className={styles.container2}>
           <Mandates />
         </div>
@@ -119,7 +119,7 @@ export default function Home() {
           <HighlightedCaseStudy />
         </div>
       </section> */}
-      <section id="contact">
+      <section>
         <div className={styles.container2}>
           <ContactForm />
         </div>
