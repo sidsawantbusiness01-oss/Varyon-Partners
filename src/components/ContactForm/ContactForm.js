@@ -136,10 +136,10 @@ export default function ContactForm() {
               <div className={styles.row}>
                 <select name="budget" onChange={handleChange}>
                   <option value="">Indicative Engagement Range</option>
-                  <option>Under $6K</option>
-                  <option>$6K – $18K</option>
-                  <option>$18K – $60K</option>
-                  <option>Above $60K</option>
+                  <option>Under $10K</option>
+                  <option>$10K – $25K</option>
+                  <option>$25K – $50K</option>
+                  <option>Above $50K+</option>
                 </select>
 
                 <input
