@@ -5,7 +5,7 @@ import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 
 export default function HowWeEngage() {
   return (
-    <section className={styles.section}>
+    <div className={styles.section}>
       <div className="container">
         {/* Heading */}
         <ScrollReveal>
@@ -88,6 +88,6 @@ export default function HowWeEngage() {
           </ScrollReveal>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

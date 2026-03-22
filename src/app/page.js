@@ -15,6 +15,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ProcessSection from "@/components/ProcessSection/ProcessSection";
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
+import Credibility from "@/components/Credibility/Credibility";
 
 export default function Home() {
   return (
@@ -64,63 +65,68 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="services">
-        <div className={styles.container2}>
-          <HowWeEngage />
+      <section >
+        <div className={styles.container}>
+          <Credibility />
         </div>
       </section>
+      <div id="services">
+        <div className={styles.container}>
+          <HowWeEngage />
+        </div>
+      </div>
       {/* <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <BreakdownSection />
         </div>
       </section> */}
       {/* <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <ScaleDiscipline />
         </div>
       </section> */}
       <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <Mandates />
         </div>
       </section>
       <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <WhyVaryon />
         </div>
       </section>
       <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <ProcessSection />
         </div>
       </section>
       {/* <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <HowWeEngage />
         </div>
       </section> */}
       {/* <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <ConvictionBlock />
         </div>
       </section> */}
       {/* <section id="services">
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <WhatWeDo />
         </div>
       </section> */}
       {/* <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <CaseStudiesCarousel />
         </div>
       </section>
       <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <HighlightedCaseStudy />
         </div>
       </section> */}
       <section>
-        <div className={styles.container2}>
+        <div className={styles.container}>
           <ContactForm />
         </div>
       </section>

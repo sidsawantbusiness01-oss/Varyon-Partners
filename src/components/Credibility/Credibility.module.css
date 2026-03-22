@@ -1,0 +1,104 @@
+.section {
+  background: #0d1a2b;
+  padding: 0 10px !important;
+}
+
+/* .section::before {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1.6px;
+  margin: 0 auto 2rem;
+  background: rgba(255, 255, 255, 0.15);
+} */
+
+/* HEADING */
+.heading {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 1.4rem;
+  color: #ffffff;
+}
+
+.heading::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1.8px;
+  margin: 0 auto 1rem;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* GRID */
+.logoGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* LOGO CARD */
+/* Default */
+.logoCard {
+  position: relative;
+  height: 70px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+}
+
+/* Larger logos (FarmRobo + Vay) */
+.largeLogo {
+  height: 115px; /* slightly bigger */
+}
+
+/* Keep responsiveness consistent */
+@media (max-width: 640px) {
+  .logoCard {
+    height: 60px;
+  }
+
+  .largeLogo {
+    height: 70px;
+  }
+}
+/* IMAGE */
+.logo {
+  object-fit: contain;
+}
+
+/* HOVER (premium subtle) */
+.logoCard:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: translateY(-2px);
+}
+
+/* ========================= */
+/* 📱 TABLET */
+/* ========================= */
+@media (max-width: 1024px) {
+  .logoGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media (max-width: 640px) {
+  .logoGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .logoCard {
+    height: 60px;
+    filter: grayscale(0%);
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+}
