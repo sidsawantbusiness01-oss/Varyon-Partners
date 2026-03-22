@@ -202,7 +202,7 @@
 
 /* LINKS */
 .links {
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-bottom: 14px;
   text-align: center;
 }
@@ -210,11 +210,16 @@
 .links a {
   color: #7aa6ff;
   text-decoration: none;
+  font-weight: 600;
+}
+
+.links a:hover {
+  color: rgb(30, 75, 165);
 }
 
 .links span {
   margin: 0 6px;
-  color: #6b7f95;
+  color: #7aa6ff;
 }
 
 /* BIO */
@@ -222,7 +227,8 @@
   font-size: 0.88rem;
   color: #c2d1e0;
   line-height: 1.7;
-  text-align: justify;
+  text-align: center;
+  font-style: italic;
 }
 
 /* RESPONSIVE */
@@ -247,7 +253,7 @@
   }
 
   .imageWrapper {
-    height: 220px;
+    height: 370px;
   }
 
   .founderContent {

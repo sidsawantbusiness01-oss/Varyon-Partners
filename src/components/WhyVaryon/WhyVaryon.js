@@ -2,6 +2,8 @@
 
 import styles from "./WhyVaryon.module.css";
 import Image from "next/image";
+import { FaLinkedin } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 
 export default function WhyVaryon() {
@@ -155,19 +157,21 @@ export default function WhyVaryon() {
 
                 <div className={styles.links}>
                   <a href="https://linkedin.com" target="_blank">
-                    LinkedIn
+                    <FaLinkedin /> LinkedIn
                   </a>
-                  <span>•</span>
-                  <a href="mailto:sid@varyon.com">Email</a>
+                  <span> • </span>
+                  <a href="mailto:sid@varyon.com">
+                    <MdEmail /> Email
+                  </a>
                 </div>
 
                 <p className={styles.bio}>
-                  Varyon was built on the belief that strong technology alone
+                  "Varyon was built on the belief that strong technology alone
                   will not build tomorrow’s robotics and physical AI businesses.
                   Commercialization, operations, and financial discipline matter
                   just as much. Varyon exists to help founders build that
                   discipline early, before complexity compounds and value leaks
-                  out.
+                  out."
                 </p>
               </div>
             </div>

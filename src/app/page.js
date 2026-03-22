@@ -14,6 +14,7 @@ import HighlightedCaseStudy from "@/components/HighlightedInsights/HighlightedIn
 import Link from "next/link";
 import Image from "next/image";
 import ProcessSection from "@/components/ProcessSection/ProcessSection";
+import ScrollReveal from "@/components/ScrollReveal/ScrollReveal";
 
 export default function Home() {
   return (
@@ -36,9 +37,11 @@ export default function Home() {
 
         <div className="container">
           {/* <h1>VARYON PARTNERS</h1> */}
-          <h1>
-            Strategy and Execution for Robotics, Physical AI and Automation
-          </h1>
+          <ScrollReveal delay={150}>
+            <h1>
+              Strategy and Execution for Robotics, Physical AI and Automation
+            </h1>
+          </ScrollReveal>
           {/* <h3>
             Strategy and Execution for Robotics, Physical AI and Automation
           </h3> */}
@@ -46,11 +49,13 @@ export default function Home() {
             Strategic commercialization and operational execution - built for
             founders and investors of the Robotics frontier.
           </h3> */}
-          <p>
-            Varyon solves the "Hardware is Hard" problem by bridging the gap
-            between R&D and profitable scale. We transform technical IP into
-            high-performance, market-leading enterprises
-          </p>
+          <ScrollReveal delay={500}>
+            <p>
+              Varyon solves the "Hardware is Hard" problem by bridging the gap
+              between R&D and profitable scale. We transform technical IP into
+              high-performance, market-leading enterprises
+            </p>
+          </ScrollReveal>
 
           <div className={styles.buttons}>
             <Link href="/#contact" className={styles.primary}>

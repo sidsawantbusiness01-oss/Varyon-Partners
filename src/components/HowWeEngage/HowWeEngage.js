@@ -15,7 +15,7 @@ export default function HowWeEngage() {
         {/* Intro */}
         <ScrollReveal delay={150}>
           <p className={styles.intro}>
-            Varvon works with founders. investors. and manufacturers through
+            Varyon works with founders, investors, and manufacturers through
             focused engagement models
           </p>
         </ScrollReveal>
@@ -43,7 +43,7 @@ export default function HowWeEngage() {
               <ul className={styles.list}>
                 <li>Industrial robot OEMs</li>
                 <li>AMR and AGV</li>
-                <li>Drone and UAV</li>
+                <li>Drones and UAVs</li>
                 <li>Warehouse robotics</li>
                 <li>Farm robotics</li>
                 <li>Field and inspection</li>
@@ -58,7 +58,7 @@ export default function HowWeEngage() {
               <h3>Physical AI & Autonomy Software</h3>
               {/* <p className={styles.timeline}>Timeline: 3–6 months</p> */}
               <ul className={styles.list}>
-                <li>erception Software </li>
+                <li>Perception Software </li>
                 <li>Autonomy Stack </li>
                 <li>Robotics Foundation Model </li>
                 <li>Simulation and Sim-to-Real Platforms</li>
@@ -82,7 +82,7 @@ export default function HowWeEngage() {
                 <li>Packaging Automation</li>
                 <li>Industrial Controls</li>
                 <li>Line Automation</li>
-                <li>Intelligent Equipment mMkers</li>
+                <li>Intelligent Equipment Makers</li>
               </ul>
             </div>
           </ScrollReveal>

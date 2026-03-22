@@ -1,110 +1,73 @@
 .section {
-  background: #0d1a2b;
   background: radial-gradient(circle at top left, #10233a, #0d1a2b 60%);
-  box-shadow: -22px 20px 30px -15px rgba(0, 71, 151, 0.35);
-  padding: 3rem 1rem 0 1rem;
+  padding: 4rem 1.5rem;
 }
 
+/* TITLE */
 .title {
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
   letter-spacing: 1px;
-  padding-top: 5px;
 }
 
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.6rem;
+  gap: 2rem;
+  align-items: stretch; /* IMPORTANT */
 }
 
-.column h3 {
-  font-size: 1.1rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  color: #9fb3c8;
-  position: relative;
-  padding-bottom: 0.75rem;
-  text-align: center;
-}
-
-.column h3::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 150px;
-  height: 1.5px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.grid > div {
-  height: 100%;
-}
-
+/* COLUMN */
 .column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
+
+/* CARD BASE */
 
 .card,
 .card2 {
   display: flex;
   flex-direction: column;
-}
-
-.card {
-  margin-bottom: 2rem;
-  padding: 1.8rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  height: 210px;
+  border-radius: 10px;
   transition: all 0.3s ease;
-  /* grounded bottom shadow */
   box-shadow: 0 18px 35px -25px rgba(0, 0, 0, 0.7);
-  justify-self: center;
-  align-items: center;
+}
 
-  display: flex;
-  flex-direction: column;
+/* SMALL CARD (if used) */
+.card {
+  padding: 1.5rem;
   justify-content: center;
+  text-align: center;
+  min-height: 180px; /* instead of fixed */
 }
 
-.card:hover {
-  border-color: rgba(0, 112, 243, 0.4);
-  transform: translateY(-4px);
-}
+/* BIG CARD */
 
 .card2 {
-  margin-bottom: 2rem;
   padding: 1.8rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  height: 730px;
-  transition: all 0.3s ease;
-  /* grounded bottom shadow */
-  box-shadow: 0 18px 35px -25px rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
+  flex: 1; /* equal height across columns */
   justify-content: flex-start;
-  align-items: stretch;
+  min-height: 780px;
 }
 
+/* HOVER */
+
+.card:hover,
 .card2:hover {
   border-color: rgba(0, 112, 243, 0.4);
   transform: translateY(-4px);
 }
 
+/* TEXT */
+
 .card h4 {
   font-size: 1rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   font-weight: 500;
   color: #ffffff;
 }
@@ -116,16 +79,16 @@
 }
 
 .card2 h4 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   margin-bottom: 0.8rem;
   font-weight: 600;
   color: #ffffff;
   text-align: center;
-  position: relative;
 }
 
-.pointsTitle{
-  font-size: 1.2rem;
+.pointsTitle {
+  font-size: 1.1rem;
+  margin-top: 1rem;
 }
 
 .card2 p {
@@ -134,44 +97,66 @@
   color: #b8c6d6;
 }
 
-.list {
-  margin-top: 0.8rem;
-  padding-left: 1.2rem;
+/* LIST */
 
-    font-size: 0.9rem;
+.list {
+  margin-top: 0.6rem;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
   line-height: 1.6;
   color: #b8c6d6;
 }
 
 .list li {
-  margin-bottom: 0.3rem;
-  
+  margin-bottom: 0.4rem;
 }
 
-/* ---------------- RESPONSIVE ---------------- */
+/* ========================= */
+/* 📱 TABLET */
+/* ========================= */
 
 @media (max-width: 1100px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .title {
+    font-size: 2.2rem;
   }
 }
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
 
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
-  }
-
-  .title {
-    font-size: 2rem;
-    padding-top: 35px;
-  }
-
-  .column h3 {
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.5rem;
+    gap: 1.5rem;
   }
 
   .section {
-    padding: 1rem;
+    padding: 3rem 1.2rem;
+  }
+
+  .title {
+    font-size: 1.9rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .card2 {
+    padding: 1.4rem;
+  }
+
+  .card2 h4 {
+    font-size: 1.3rem;
+  }
+
+  .pointsTitle {
+    font-size: 1rem;
+  }
+
+  .list {
+    font-size: 0.85rem;
   }
 }

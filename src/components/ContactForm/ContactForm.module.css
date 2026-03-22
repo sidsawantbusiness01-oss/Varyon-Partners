@@ -211,4 +211,9 @@
   .row {
     grid-template-columns: 1fr;
   }
+
+  .ctaCard {
+  width: 100%;
+}
+
 }

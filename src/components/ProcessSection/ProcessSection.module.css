@@ -115,12 +115,14 @@
   font-size: 1.5rem;
   color: #ffffff;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .globalBox p {
   color: #c2d1e0;
   line-height: 1.7;
   font-size: 0.95rem;
+  text-align: center;
 }
 
 /* ---------------- MOBILE ---------------- */

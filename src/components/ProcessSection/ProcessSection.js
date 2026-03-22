@@ -8,7 +8,7 @@ export default function ProcessSection() {
         {/* Header */}
         <ScrollReveal>
           <div className={styles.header}>
-            <h2>How the Work Typically Unfolds</h2>
+            <h2>Typical Delivery Process</h2>
             <p>
               Not every engagement follows the same format, but most mandates
               move through diagnosis, design, and implementation support.
