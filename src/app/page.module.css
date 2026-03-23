@@ -25,15 +25,9 @@
 .overlay {
   position: absolute;
   inset: 0;
-
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 0.75) 15%,   /* dark center */
-    rgba(0, 0, 0, 0.3) 50%,   /* soft fade */
-    rgba(0, 0, 0, 0.2) 85%,   /* very light */
-    transparent 100%           /* fully clear edges */
-  );
+  background: rgba(0, 0, 0, 0.8);
 }
+
 .hero > .container {
   position: relative;
   z-index: 2;
