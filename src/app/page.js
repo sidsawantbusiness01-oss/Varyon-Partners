@@ -58,11 +58,11 @@ export default function Home() {
             </p>
           </ScrollReveal>
 
-          <div className={styles.buttons}>
+          {/* <div className={styles.buttons}>
             <Link href="/#contact" className={styles.primary}>
               Discuss an Engagement
             </Link>
-          </div>
+          </div> */}
         </div>
       </section>
       <section >

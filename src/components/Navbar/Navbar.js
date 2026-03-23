@@ -25,11 +25,11 @@ export default function Navbar() {
           <Link href="/" onClick={() => setMenuOpen(false)}>
             Home
           </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}>
-            About
-          </Link>
           <Link href="/#services" onClick={() => setMenuOpen(false)}>
             What we do
+          </Link>
+          <Link href="/about" onClick={() => setMenuOpen(false)}>
+            About
           </Link>
           <Link href="/case-studies" onClick={() => setMenuOpen(false)}>
             Case Studies

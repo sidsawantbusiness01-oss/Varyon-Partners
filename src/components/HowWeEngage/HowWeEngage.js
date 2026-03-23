@@ -9,7 +9,7 @@ export default function HowWeEngage() {
       <div className="container">
         {/* Heading */}
         <ScrollReveal>
-          <h2 className={styles.heading}>How We Engage</h2>
+          <h2 className={styles.heading}>How we engage</h2>
         </ScrollReveal>
 
         {/* Intro */}
