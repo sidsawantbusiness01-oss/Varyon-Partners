@@ -30,7 +30,7 @@ export default function HowWeEngage() {
         </ScrollReveal> */}
         <ScrollReveal delay={150}>
           <h2 className={styles.industrySegment}>
-            Industry segments we serve:
+            Industry segments we serve
           </h2>
         </ScrollReveal>
 
