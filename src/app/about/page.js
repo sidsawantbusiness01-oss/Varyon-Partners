@@ -9,11 +9,11 @@ export default function About() {
   return (
     <section className={styles.wrapper}>
       <div className="container">
-        <div className={styles.buttons}>
+        {/* <div className={styles.buttons}>
           <Link href="/contact" className={styles.primary}>
             Discuss an Engagement
           </Link>
-        </div>
+        </div> */}
         <section>
           <div className={styles.container2}>
             <WhyVaryon />
