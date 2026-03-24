@@ -6,12 +6,9 @@ import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   useEffect(() => {
-    if (menuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
 
   return (
@@ -21,25 +18,28 @@ export default function Navbar() {
           VARYON PARTNERS
         </Link>
 
+        {/* MENU */}
         <nav className={`${styles.menu} ${menuOpen ? styles.show : ""}`}>
-          <Link href="/" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-          <Link href="/#services" onClick={() => setMenuOpen(false)}>
-            What we do
-          </Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}>
-            About
-          </Link>
-          <Link href="/case-studies" onClick={() => setMenuOpen(false)}>
-            Case Studies
-          </Link>
-          <Link href="/insights" onClick={() => setMenuOpen(false)}>
-            Insights
-          </Link>
-          {/* <Link href="/career" onClick={() => setMenuOpen(false)}>
-            Career
-          </Link> */}
+          {/* LINKS */}
+          <div className={styles.menuLinks}>
+            <Link href="/" onClick={() => setMenuOpen(false)}>
+              Home
+            </Link>
+            <Link href="/#services" onClick={() => setMenuOpen(false)}>
+              What we do
+            </Link>
+            <Link href="/about" onClick={() => setMenuOpen(false)}>
+              About
+            </Link>
+            <Link href="/case-studies" onClick={() => setMenuOpen(false)}>
+              Case Studies
+            </Link>
+            <Link href="/insights" onClick={() => setMenuOpen(false)}>
+              Insights
+            </Link>
+          </div>
+
+          {/* CTA */}
           <Link
             className={styles.cta}
             href="/#contact"
@@ -49,13 +49,14 @@ export default function Navbar() {
           </Link>
         </nav>
 
+        {/* HAMBURGER */}
         <button
-          className={styles.hamburger}
+          className={`${styles.hamburger} ${menuOpen ? styles.active : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span className={`${styles.bar} ${menuOpen ? styles.bar1 : ""}`} />
-          <span className={`${styles.bar} ${menuOpen ? styles.bar2 : ""}`} />
-          <span className={`${styles.bar} ${menuOpen ? styles.bar3 : ""}`} />
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
         </button>
       </div>
     </header>

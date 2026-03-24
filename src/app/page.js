@@ -45,8 +45,7 @@ export default function Home() {
           </ScrollReveal>
           {/* <h3>
             Strategy and Execution for Robotics, Physical AI and Automation
-          </h3> */}
-          {/* <h3>
+          </h3> */}          {/* <h3>
             Strategic commercialization and operational execution - built for
             founders and investors of the Robotics frontier.
           </h3> */}
