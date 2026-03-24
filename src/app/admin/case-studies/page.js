@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import supabase from "@/lib/supabase";
 import styles from "./case-study.module.css";
+import Loader from "@/components/Loader/Loader";
 
 export default function CaseStudiesPage() {
   const [caseStudies, setCaseStudies] = useState([]);
@@ -14,6 +15,8 @@ export default function CaseStudiesPage() {
   }, []);
 
   const fetchCaseStudies = async () => {
+    setLoading(true); // ✅ important
+
     const { data, error } = await supabase
       .from("case_studies")
       .select("id, title")
@@ -23,34 +26,39 @@ export default function CaseStudiesPage() {
       setCaseStudies(data);
     }
 
-    setLoading(false);
+    setLoading(false); // ✅ stop
   };
 
-  if (loading) return <p>Loading case studies...</p>;
-
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.header}>
-        <h1>Manage Case Studies</h1>
+    <>
+      <Loader loading={loading} text="Fetching case studies..." />
 
-        <Link href="/admin/case-studies/new" className={styles.addBtn}>
-          + Add Case Study
-        </Link>
-      </div>
+      <div className={styles.wrapper}>
+        <div className={styles.header}>
+          <h1>Manage Case Studies</h1>
 
-      <div className={styles.list}>
-        {caseStudies.length === 0 && <p>No case studies added yet</p>}
-
-        {caseStudies.map((item) => (
-          <Link
-            key={item.id}
-            href={`/admin/case-studies/${item.id}`}
-            className={styles.card}
-          >
-            {item.title}
+          <Link href="/admin/case-studies/new" className={styles.addBtn}>
+            + Add Case Study
           </Link>
-        ))}
+        </div>
+
+        <div className={styles.list}>
+          {!loading && caseStudies.length === 0 && (
+            <p>No case studies added yet</p>
+          )}
+
+          {!loading &&
+            caseStudies.map((item) => (
+              <Link
+                key={item.id}
+                href={`/admin/case-studies/${item.id}`}
+                className={styles.card}
+              >
+                {item.title}
+              </Link>
+            ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

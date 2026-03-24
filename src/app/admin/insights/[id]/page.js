@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import supabase from "@/lib/supabase";
 import styles from "./insightDetail.module.css";
 import { deleteInsight } from "../actions";
+import Loader from "@/components/Loader/Loader";
 
 export default function InsightDetail() {
   const { id } = useParams();
@@ -12,13 +13,18 @@ export default function InsightDetail() {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [loading, setLoading] = useState(true);
+
+  const [loading, setLoading] = useState(true); // fetch
+  const [saving, setSaving] = useState(false); // update
+  const [deleting, setDeleting] = useState(false); // delete
 
   useEffect(() => {
     fetchInsight();
   }, []);
 
   const fetchInsight = async () => {
+    setLoading(true);
+
     const { data, error } = await supabase
       .from("insights")
       .select("*")
@@ -32,28 +38,33 @@ export default function InsightDetail() {
 
     setLoading(false);
   };
-  
+
   const handleUpdate = async () => {
-    // validation
     if (!title.trim() || !content.trim()) {
       alert("Please write something in both Title and Content.");
       return;
     }
 
-    const { error } = await supabase
-      .from("insights")
-      .update({
-        title,
-        content,
-      })
-      .eq("id", id);
+    setSaving(true);
 
-    if (error) {
+    try {
+      const { error } = await supabase
+        .from("insights")
+        .update({
+          title,
+          content,
+        })
+        .eq("id", id);
+
+      if (error) throw error;
+
+      alert("Insight updated");
+    } catch (err) {
+      console.error(err);
       alert("Update failed");
-      return;
+    } finally {
+      setSaving(false);
     }
-
-    alert("Insight updated");
   };
 
   const handleDelete = async () => {
@@ -63,51 +74,79 @@ export default function InsightDetail() {
 
     if (!confirmDelete) return;
 
-    const result = await deleteInsight(id);
+    setDeleting(true);
 
-    if (result?.error) {
-      alert(result.error);
-      return;
+    try {
+      const result = await deleteInsight(id);
+
+      if (result?.error) throw new Error(result.error);
+
+      alert("Insight deleted successfully");
+      router.push("/admin/insights");
+    } catch (err) {
+      console.error(err);
+      alert("Delete failed");
+    } finally {
+      setDeleting(false);
     }
-
-    alert("Insight deleted successfully");
-
-    router.push("/admin/insights");
   };
-
-  if (loading) return <p>Loading...</p>;
-
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>Edit Insight</h1>
+    <>
+      <Loader
+        loading={loading || saving || deleting}
+        text={
+          loading
+            ? "Fetching insight..."
+            : saving
+              ? "Saving changes..."
+              : "Deleting insight..."
+        }
+      />
+      <div
+        className={styles.wrapper}
+        style={{
+          pointerEvents: saving || deleting ? "none" : "auto",
+          opacity: saving || deleting ? 0.7 : 1,
+        }}
+      >
+        <div className={styles.header}>
+          <h1 className={styles.title}>Edit Insight</h1>
 
-        <div className={styles.actions}>
-          <button onClick={handleUpdate} className={styles.editBtn}>
-            Save
-          </button>
+          <div className={styles.actions}>
+            <button
+              onClick={handleUpdate}
+              className={styles.editBtn}
+              disabled={saving || deleting}
+            >
+              {saving ? "Saving..." : "Save"}
+            </button>
 
-          <button onClick={handleDelete} className={styles.deleteBtn}>
-            Delete
-          </button>
+            <button
+              onClick={handleDelete}
+              className={styles.deleteBtn}
+              disabled={saving || deleting}
+            >
+              {deleting ? "Deleting..." : "Delete"}
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.contentBox}>
+          <input
+            className={styles.input}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Insight title"
+          />
+
+          <textarea
+            className={styles.textarea}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Insight content"
+          />
         </div>
       </div>
-
-      <div className={styles.contentBox}>
-        <input
-          className={styles.input}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Insight title"
-        />
-
-        <textarea
-          className={styles.textarea}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Insight content"
-        />
-      </div>
-    </div>
+    </>
   );
 }

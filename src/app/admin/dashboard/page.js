@@ -3,15 +3,18 @@
 import { useEffect, useState } from "react";
 import styles from "./dashboard.module.css";
 import supabase from "@/lib/supabase";
+import Loader from "@/components/Loader/Loader";
 
 export default function Dashboard() {
   const [insightsCount, setInsightsCount] = useState(0);
   const [caseStudiesCount, setCaseStudiesCount] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCounts = async () => {
+      setLoading(true);
+
       try {
-        // Insights count
         const { count: insights, error: insightsError } = await supabase
           .from("insights")
           .select("id", { count: "exact", head: true });
@@ -29,22 +32,23 @@ export default function Dashboard() {
         setCaseStudiesCount(cases || 0);
       } catch (err) {
         console.error("Error fetching counts:", err);
+      } finally {
+        setLoading(false); // ✅ always stop
       }
     };
 
     fetchCounts();
   }, []);
-
   return (
     <div className={styles.cards}>
       <div className={styles.card}>
         <h3>Total Insights</h3>
-        <p>{insightsCount}</p>
+        <p>{loading ? "—" : insightsCount}</p>
       </div>
 
       <div className={styles.card}>
         <h3>Total Case Studies</h3>
-        <p>{caseStudiesCount}</p>
+        <p>{loading ? "—" : caseStudiesCount}</p>
       </div>
     </div>
   );

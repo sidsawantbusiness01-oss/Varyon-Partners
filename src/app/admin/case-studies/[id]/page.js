@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import supabase from "@/lib/supabase";
 import { deleteCaseStudy } from "../actions";
 import styles from "./caseStudyDetail.module.css";
+import Loader from "@/components/Loader/Loader";
 
 export default function CaseStudyDetail() {
   const { id } = useParams();
@@ -12,13 +13,18 @@ export default function CaseStudyDetail() {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
   const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     fetchCaseStudy();
   }, []);
 
   const fetchCaseStudy = async () => {
+    setLoading(true);
+
     const { data, error } = await supabase
       .from("case_studies")
       .select("*")
@@ -39,22 +45,27 @@ export default function CaseStudyDetail() {
       return;
     }
 
-    const { error } = await supabase
-      .from("case_studies")
-      .update({
-        title,
-        content,
-      })
-      .eq("id", id);
+    setSaving(true);
 
-    if (error) {
+    try {
+      const { error } = await supabase
+        .from("case_studies")
+        .update({
+          title,
+          content,
+        })
+        .eq("id", id);
+
+      if (error) throw error;
+
+      alert("Case Study updated");
+    } catch (err) {
+      console.error(err);
       alert("Update failed");
-      return;
+    } finally {
+      setSaving(false);
     }
-
-    alert("Case Study updated");
   };
-
   const handleDelete = async () => {
     const confirmDelete = confirm(
       "Are you sure you want to delete this case study?",
@@ -62,51 +73,80 @@ export default function CaseStudyDetail() {
 
     if (!confirmDelete) return;
 
-    const result = await deleteCaseStudy(id);
+    setDeleting(true);
 
-    if (result?.error) {
-      alert(result.error);
-      return;
+    try {
+      const result = await deleteCaseStudy(id);
+
+      if (result?.error) throw new Error(result.error);
+
+      alert("Case Study deleted successfully");
+      router.push("/admin/case-studies");
+    } catch (err) {
+      console.error(err);
+      alert("Delete failed");
+    } finally {
+      setDeleting(false);
     }
-
-    alert("Case Study deleted successfully");
-
-    router.push("/admin/case-studies");
   };
 
-  if (loading) return <p>Loading...</p>;
-
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.header}>
-        <h1 className={styles.title}>Edit Case Study</h1>
+    <>
+      <Loader
+        loading={loading || saving || deleting}
+        text={
+          loading
+            ? "Fetching case study..."
+            : saving
+              ? "Saving changes..."
+              : "Deleting case study..."
+        }
+      />
+      <div
+        className={styles.wrapper}
+        style={{
+          pointerEvents: saving || deleting ? "none" : "auto",
+          opacity: saving || deleting ? 0.7 : 1,
+        }}
+      >
+        <div className={styles.header}>
+          <h1 className={styles.title}>Edit Case Study</h1>
 
-        <div className={styles.actions}>
-          <button onClick={handleUpdate} className={styles.editBtn}>
-            Save
-          </button>
+          <div className={styles.actions}>
+            <button
+              onClick={handleUpdate}
+              className={styles.editBtn}
+              disabled={saving || deleting}
+            >
+              {saving ? "Saving..." : "Save"}
+            </button>
 
-          <button onClick={handleDelete} className={styles.deleteBtn}>
-            Delete
-          </button>
+            <button
+              onClick={handleDelete}
+              className={styles.deleteBtn}
+              disabled={saving || deleting}
+            >
+              {deleting ? "Deleting..." : "Delete"}
+            </button>
+          </div>
+        </div>
+
+        <div className={styles.contentBox}>
+          <input
+            className={styles.input}
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Case Study title"
+          />
+
+          <textarea
+            className={styles.textarea}
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Case Study content"
+          />
         </div>
       </div>
-
-      <div className={styles.contentBox}>
-        <input
-          className={styles.input}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Case Study title"
-        />
-
-        <textarea
-          className={styles.textarea}
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Case Study content"
-        />
-      </div>
-    </div>
+    </>
   );
 }
