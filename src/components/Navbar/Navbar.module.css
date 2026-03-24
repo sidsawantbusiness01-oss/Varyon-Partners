@@ -36,14 +36,14 @@
 .menu a {
   margin-left: 2rem;
   color: white;
-  font-size: 0.85rem;
+  font-size: 0.90rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .menu a:hover {
   color: #0070f3;
-  font-size: 0.87rem;
+  font-size: 0.93rem;
 }
 
 /* ================= CTA ================= */
