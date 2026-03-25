@@ -134,7 +134,7 @@ export default function ContactForm() {
               </div>
 
               <div className={styles.row}>
-                <select name="budget" onChange={handleChange}>
+                <select aria-label="Indicative Engagement Range" name="budget" onChange={handleChange}>
                   <option value="">Indicative Engagement Range</option>
                   <option>Under $10K</option>
                   <option>$10K – $25K</option>
