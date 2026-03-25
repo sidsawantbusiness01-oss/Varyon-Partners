@@ -1,3 +1,28 @@
+export const metadata = {
+  title: "About",
+  description:
+    "Learn about Varyon Partners – our mission, mandate, and operator-led approach to strategy and execution for robotics, automation, and physical AI companies.",
+  keywords: [
+    "about Varyon Partners",
+    "robotics advisory firm background",
+    "automation strategy team",
+    "physical AI experts",
+    "operator-led advisory",
+    "robotics execution experts",
+    "why Varyon Partners",
+    "robotics consulting firm",
+  ],
+  openGraph: {
+    title: "About Varyon Partners",
+    description:
+      "Learn about Varyon Partners – our mission, mandate, and operator-led approach to strategy and execution for robotics, automation, and physical AI companies.",
+    url: "https://www.varyonpartners.com/about",
+  },
+  alternates: {
+    canonical: "https://www.varyonpartners.com/about",
+  },
+};
+
 import Link from "next/link";
 import WhyVaryon from "@/components/WhyVaryon/WhyVaryon";
 import VaryonMandate from "@/components/Mandates/Mandates";
@@ -29,7 +54,7 @@ export default function About() {
             <HowWeEngage />
           </div>
         </section>
-          {/* <section>
+        {/* <section>
             <div className={styles.container2}>
               <WhatWeDo />
             </div>

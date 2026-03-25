@@ -1,3 +1,32 @@
+export const metadata = {
+  title: "Services",
+  description:
+    "Varyon Partners offers investment thesis & commercial diligence, commercialisation & scale programs, and selective fractional COO engagements for robotics, automation, and physical AI firms.",
+  keywords: [
+    "robotics consulting services",
+    "automation advisory services",
+    "investment thesis robotics",
+    "commercial diligence automation",
+    "commercialization scale program",
+    "fractional COO robotics",
+    "robotics GTM program",
+    "automation go-to-market",
+    "physical AI advisory services",
+    "robotics scale execution",
+    "VC due diligence robotics",
+    "PE fund automation advisory",
+  ],
+  openGraph: {
+    title: "Services – Varyon Partners",
+    description:
+      "Investment thesis & commercial diligence, commercialisation & scale programs, and fractional COO engagements for robotics and automation firms.",
+    url: "https://www.varyonpartners.com/services",
+  },
+  alternates: {
+    canonical: "https://www.varyonpartners.com/services",
+  },
+};
+
 import styles from "./page.module.css";
 
 export default function Services() {
