@@ -80,6 +80,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-scroll-behavior="smooth">
+      <meta
+        name="google-site-verification"
+        content="7GGVnDueciNY62BU2sFHdLmxXpJOC0aDWgO__U-h7Q8"
+      />
       <body>
         <LayoutWrapper>{children}</LayoutWrapper>
         <SpeedInsights />
