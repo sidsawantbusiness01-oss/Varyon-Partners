@@ -42,7 +42,7 @@ export default function Mandates() {
               </ScrollReveal> */}
               <ScrollReveal delay={150}>
                 <div className={styles.card2}>
-                  <h4>Diagnostic Mandate</h4>
+                  <h3>Diagnostic Mandate</h3>
                   <p>
                     For companies or investors that need an independent view on
                     commercialization risk, operating readiness, scale

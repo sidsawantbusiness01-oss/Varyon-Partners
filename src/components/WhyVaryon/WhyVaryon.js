@@ -39,7 +39,7 @@ export default function WhyVaryon() {
                   <p className={styles.columnTitle}>VARYON: CURRENT VELOCITY</p>
 
                   <div className={styles.card}>
-                    <h4>Upshift | Autonomous GTM & Tele-driving Pilot</h4>
+                    <h3>Upshift | Autonomous GTM & Tele-driving Pilot</h3>
                     <ul>
                       <li>
                         <strong>The Metric:</strong> Supporting a $5M Seed round
