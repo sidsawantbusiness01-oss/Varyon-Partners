@@ -156,11 +156,15 @@ export default function WhyVaryon() {
                 <p className={styles.role}>Managing Partner, Varyon</p>
 
                 <div className={styles.links}>
-                  <a href="https://linkedin.com" target="_blank">
+                  <a
+                    href="https://www.linkedin.com/in/sidsawantkellogg/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <FaLinkedin /> LinkedIn
                   </a>
                   <span> • </span>
-                  <a href="mailto:sid@varyon.com">
+                  <a href="mailto:sidsawant.business01@gmail.com">
                     <MdEmail /> Email
                   </a>
                 </div>
