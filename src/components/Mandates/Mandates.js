@@ -49,7 +49,7 @@ export default function Mandates() {
                     constraints, or deployment economics.
                   </p>
                   <br />
-                  <h5 className={styles.pointsTitle}>Typical Scope:</h5>
+                  <h4 className={styles.pointsTitle}>Typical Scope:</h4>
                   <ul className={styles.list}>
                     <li>Commercialization and Scale Readiness</li>
                     <li>Deployment and Service Model Risk</li>
@@ -110,7 +110,7 @@ export default function Mandates() {
                     operating cadence, and scale readiness.
                   </p>
                   <br />
-                  <h5 className={styles.pointsTitle}>Typical Scope:</h5>
+                  <h4 className={styles.pointsTitle}>Typical Scope:</h4>
                   <ul className={styles.list}>
                     <li>Commercialization Program Design</li>
                     <li>Go-To-Market Planning and Support</li>
@@ -152,7 +152,7 @@ export default function Mandates() {
                     scale, and operating questions.
                   </p>
                   <br />
-                  <h5 className={styles.pointsTitle}>Typical Scope:</h5>
+                  <h4 className={styles.pointsTitle}>Typical Scope:</h4>
                   <ul className={styles.list}>
                     <li>Founder and CXO Advisory</li>
                     <li>Scale Priorities and Trade-offs</li>

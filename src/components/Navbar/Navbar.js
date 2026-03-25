@@ -53,6 +53,7 @@ export default function Navbar() {
         <button
           className={`${styles.hamburger} ${menuOpen ? styles.active : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Open navigation menu"
         >
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
