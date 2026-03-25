@@ -18,11 +18,19 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className={styles.socials}>
-              <a href="#" target="_blank">
+              <a
+                href="https://www.linkedin.com/company/varyon-partners/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaLinkedinIn />
               </a>
 
-              <a href="#" target="_blank">
+              <a
+                href="https://x.com/Pragmatickidult"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaTwitter />
               </a>
             </div>
