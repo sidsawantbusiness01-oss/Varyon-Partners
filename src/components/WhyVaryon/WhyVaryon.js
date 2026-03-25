@@ -160,6 +160,7 @@ export default function WhyVaryon() {
                     href="https://www.linkedin.com/in/sidsawantkellogg/"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="Varyon Partners Siddharth LinkedIn"
                   >
                     <FaLinkedin /> LinkedIn
                   </a>

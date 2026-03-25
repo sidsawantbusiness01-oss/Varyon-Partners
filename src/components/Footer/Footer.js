@@ -22,6 +22,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/varyon-partners/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Varyon Partners on LinkedIn"
               >
                 <FaLinkedinIn />
               </a>
@@ -30,6 +31,7 @@ export default function Footer() {
                 href="https://x.com/Pragmatickidult"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Varyon Partners on Twitter"
               >
                 <FaTwitter />
               </a>
